@@ -15,19 +15,19 @@ public:
     int maxDistance(vector<int>& position, int m) {
     sort(position.begin(), position.end());
 
-        int low = 0 ;
-        int high = INT_MAX;
+        int low = 1 ;
+        int high = position.back() - position.front();
+        int ans = 0;
         while(low <= high){
             int mid = low +(high-low)/2;
             bool r1 = ispossible(position,m,mid);
             if(!r1) high = mid - 1;
             else {
-                bool r2 = ispossible(position,m,mid+1);
-                if(!r2) return mid;
-                else low =mid+1;
+              ans = mid;
+              low =mid+1;
             }
         }
-        return -1;
+        return ans;
     }
 
 };
