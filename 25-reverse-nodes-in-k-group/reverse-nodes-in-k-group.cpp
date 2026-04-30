@@ -23,14 +23,14 @@ public:
              curr = tmp ;
              count++;
         }
-        remainder = curr;
+        remainder = curr; //remiander is storing the address of next node after reverse
         return prev;
     }
 
 // recursive code 
 
     ListNode* kRev(ListNode* head , int k , int totalCount ){
-        if(!head || totalCount < k ) return head ; // termination condition
+        if(totalCount < k ) return head ; // termination condition
 
         // reverse the chunck
         ListNode* remainder;
