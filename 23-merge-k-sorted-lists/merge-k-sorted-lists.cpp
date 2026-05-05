@@ -1,3 +1,4 @@
+// applying recursive approach using merge sort 
 class Solution {
 public:
     // merge two list in sorted order 
