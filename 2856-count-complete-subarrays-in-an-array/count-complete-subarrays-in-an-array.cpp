@@ -1,21 +1,17 @@
 class Solution {
 public:
     int countCompleteSubarrays(vector<int>& nums) {
-        unordered_set<int> st(nums.begin() , nums.end());
-        int distinctElement = st.size() ;
-        int n = nums.size();
-        unordered_map<int , int> freq;
-        int ans = 0 , j = 0;
+        unordered_set<int> st(nums.begin(), nums.end());
+        int distinct = st.size();
 
-        for(int i = 0; i < n; i++){
-            freq[nums[i]]++;
+        int ans = 0;
+        
+        for(int i = 0 ; i < nums.size(); i++){
+            unordered_set<int> f;
+            for(int j = i; j < nums.size(); j++){
+                f.insert(nums[j]);
 
-            while(freq.size() == distinctElement){
-
-                ans += n - i;
-                freq[nums[j]]--;
-                if(freq[nums[j]] == 0) freq.erase(nums[j]);
-                j++;
+                if(f.size() == distinct) ans++;
             }
         }
         return ans;
